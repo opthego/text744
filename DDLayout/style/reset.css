@@ -1,0 +1,22 @@
+body,p,h1,h2,h3,h4,h5,h6,dd{margin:0;}
+ul,li,ol,dl,dt{margin:0;padding:0;list-style:none;}
+a{text-decoration:none;color:#000;}
+img{border:0;}
+form,button,textarea{margin:0;padding:0}
+input,button,textarea{outline:none}
+
+/*万能 轻浮动  父级浮动   父级绝对定位     */
+
+.clearfix:after{
+	content:'';
+	display:block;
+	clear:both;
+	height:0;
+	width:0;
+	visibility:hidden;
+}
+.clearfix{
+	zoom:1;
+}
+
+

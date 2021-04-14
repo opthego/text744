@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../js/swiper.css">
+		<link rel="stylesheet" href="../style/reset.css">
+		<link rel="stylesheet" href="../style/firindex.css">
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_2200340_jvgtk95oco7.css">
+	</head>
+	<body>
+		<div id="app">
+			<div class="topLog" style="border-top:0.5px solid #000;">
+				<img src="../image/topGO.png" alt="">
+				<div class="nav">
+					<ul class="firnav">
+						<li>商品</li>
+						<li>详情</li>
+						<li>评论</li>
+						<li>推荐</li>
+					</ul>
+				</div>
+			</div>
+			<div class="firId">
+				<div class="firbnnr">
+					<bnnr :arb="firn"></bnnr>
+				</div>
+				<div class="firPrice">
+					<p class="firname">{{firn.name}}</p>
+					<span>{{"￥"+firn.price+".00"}}</span>
+				</div>
+				<div class="firxx">
+					<div class="firxx-pim">
+						<img :src="item" alt="" v-for="(item,i) in firn.zImg" v-show="op==i">
+						
+					</div>
+					<div style="display:flex;flex-direction: column;width:60%;">
+						<span style="color:#F0374E;">{{"￥"+firn.price+".00"}}</span>
+						<span>{{firn.name}}</span>
+					</div>
+				</div>
+				<div class="firxx-list">
+					<div class="firxx-list-nav">
+						<p v-for="(item,i) in firn.xLs" @click="fnx(i)" :class="i==op?'acitve':' '">{{item}}</p>
+					</div>
+					<sec @fashe="jies"></sec>
+				</div>
+			</div>
+			<div class="cicGo">
+				<p>
+					<span class="iconfont icon-shoucang"></span>
+					<span>收藏</span>
+				</p>
+				<p>
+					<a @click="klo()" :href="hre">
+						<span class="iconfont icon-gouwuche"></span>
+						<span>购物车</span>
+					</a>
+				</p>
+				
+				<div style="background-color: rgb(255,190,35);" @click="jaru">立即购买</div>
+				<div @click="jaru" style="background-color: rgb(243,85,75);" >加入购物车</div>
+			</div>
+		</div>
+		
+		<template id="gh">
+			<section class="secjj">
+				<button @click="js('')">-</button>
+				<input type="text" v-model="index">
+				<button @click="js('jia')">+</button>
+				<div>
+					<button class="go-cat-bnt"  @click="fss(index)">确定</button>
+			</section>
+		</template>
+		<template id="firBnr">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" v-for="item in arb.zImg">
+						<img :src="item" alt="">
+					</div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</template>
+	</body>
+	
+	<script src="../js/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script src="../js/rem.js"></script>
+	<script src="../js/swiper.js"></script>
+	<script src="../vueJS/firjs.js"></script>
+	<script src="../js/indexJs.js"></script>
+	<script src="../js/jQuery.js"></script>
+</html>

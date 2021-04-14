@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../style/reset.css">
+		<link rel="stylesheet" href="../style/indexCss.css">
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_2200340_jvgtk95oco7.css">
+		<link rel="stylesheet" href="../js/swiper.css">
+		<script src="../js/rem.js"></script>
+		<script src="../js/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+	<body>
+		<!-- 大盒子 wrap -->
+		<div id="app" class="wrap">
+			<div class="topGo"><a href=""><img src="../image/topGO.png" alt=""></a></div>
+			<!-- 搜索 -->
+			<div class="souInp">
+				<p class="iconfont icon-icon_xiegang"></p>
+				<div>
+					<span class="iconfont icon-sousuo"></span>
+					<input type="text" placeholder="搜索商品/店铺/种类">
+				</div>
+				<a href="second-level menu.html"><span class="iconfont icon-xuanxiang"></span></a>
+			</div>
+			<!-- 搜索 over -->
+
+			<!-- 轮播图 -->
+			<div class="banner">
+				<bnr></bnr>
+				<!-- <bnr></bnr> -->
+			</div>
+			<!-- 轮播图over -->
+
+			<!-- 分类书记 -->
+			<div class="filter">
+				<ul>
+					<li v-for="item in fir"><img :src="item" alt=""></li>
+				</ul>
+			</div>
+			<!-- 分类书记over -->
+
+			<!-- 今日秒杀 -->
+			<div class="secKillify">
+				<p class="seckGo"><a href="#"><img src="../image/jrms.jpg" alt=""></a></p>
+				<div class="daoTime">
+					<p>
+						<time>{{cc.s}}</time>
+						<span>时</span>
+						<time>{{cc.f}}</time>
+						<span>分</span>
+						<time style="background:#f3344a;">{{cc.m}}</time>
+						<span>秒</span>
+					</p>
+				</div>
+
+				<div class="mierSa">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="(item,i) in jr" :data-type = "item.id">
+								<img :src="item.image" alt="">
+								<p>{{item.name.substr(0,20)+"..."}}</p>
+								<h3>{{"￥"+item.price+".00"}}</h3>
+								<s>{{"￥"+item.yprice+".00"}}</s>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="guangG1">
+					<a href=""><img src="../image/guangG1.png" alt=""></a>
+				</div>
+				<div class="qqzd">
+					<img src="../image/qqzd.jpg" alt="">
+				</div>
+				<div class="icon-bnt">
+					<p>当当书城 <span class="iconfont icon-youanniu"></span></p>
+					<p>电子书 <span class="iconfont icon-youanniu"></p>
+					<p>网络文书 <span class="iconfont icon-youanniu"></p>
+				</div>
+				<div class="guangG2" style="padding:none;">
+					<a href=""><img src="../image/guangG2.jpg" alt=""></a>
+				</div>
+			</div>
+			<!-- 今日秒杀 over-->
+
+			<!-- 店铺 -->
+			<div class="bookCity">
+				<ul>
+					<li v-for="(item) in bookC">
+						<p>{{item.title}}</p>
+						<p style="color:#F0374E;font-size:0.14rem;">{{item.content}}</p>
+						<img :src="item.image" alt="">
+					</li>
+				</ul>
+				<div class="qqzd">
+					<img src="../image/fzfs.jpg" alt="">
+				</div>
+				<div class="icon-bnt">
+					<p>服装品牌榜单 <span class="iconfont icon-youanniu"></span></p>
+					<p>服装上新 <span class="iconfont icon-youanniu"></p>
+					<p>服装棺 <span class="iconfont icon-youanniu"></p>
+				</div>
+				<div class="guangG2" style="padding:none;">
+					<a href=""><img src="../image/guangG3.jpg" alt=""></a>
+				</div>
+				<div class="conCent">
+					<div class="con-top">
+						<div style="border-right:none;">
+							<p>茵曼女装</p>
+							<p>低至1折起</p>
+							<img src="../image/con1.jpg" alt="" style="width:1.76rem;height:1.76rem;float:right">
+						</div>
+						<div>
+							<p style="border-left:none;">
+								<span>
+									<a href="">迪士尼童鞋</a>
+									<a href="">限时99元2双</a>
+								</span>
+								<img src="../image/con2.jpg" alt="" style="width:1.15rem;height:1.15rem;">
+							</p>
+							<p style="border-left:none;border-top:none;border-bottom:none;">
+								<span>
+									<a href="">迪士尼童鞋</a>
+									<a href="">限时99元2双</a>
+								</span>
+								<img src="../image/con3.png" alt="" style="width:1.15rem;height:1.15rem;">
+							</p>
+						</div>
+					</div>
+					<div class="con-center">
+						<p >
+							<span>
+								<a href="">迪士尼童鞋</a>
+								<a href="">限时99元2双</a>
+							</span>
+							<img src="../image/con4.jpg" alt="" style="width:1.15rem;height:1.15rem;">
+						</p>
+						<p style="border-left:none;">
+							<span>
+								<a href="">迪士尼童鞋</a>
+								<a href="">限时99元2双</a>
+							</span>
+							<img src="../image/con5.jpg" alt="" style="width:1.15rem;height:1.15rem;">
+						</p>
+					</div>
+					<div class="con-bottom">
+						<div>
+							<p>巴帝巴帝</p>
+							<p>3件2折</p>
+							<img src="../image/con6.jpg" alt="">
+						</div>
+						<div>
+							<p>巴帝巴帝</p>
+							<p>3件2折</p>
+							<img src="../image/con7.jpg" alt="">
+						</div>
+						<div>
+							<p>巴帝巴帝</p>
+							<p>3件2折</p>
+							<img src="../image/con8.jpg" alt="">
+						</div>
+						<div>
+							<p>巴帝巴帝</p>
+							<p>3件2折</p>
+							<img src="../image/con9.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				<!-- 猜你喜欢 -->
+				<div class="cnLove">
+					<div class="guangG2" style="padding:none;border-top:0.5px solid #ccc;">
+						<a href=""><img src="../jsonImage/ge.jpg" alt=""></a>
+					</div>
+					<ul>
+						<li v-for="(item) in cnL" >
+							<a href="firindex.html" :id="item.id" @click="go(item.id)">
+								<img :src="item.image" alt="">
+								<p>{{item.name.substr(0,18)+"..."}}</p>
+								<h3>{{"￥"+item.price+".00"}}</h3>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- 猜你喜欢over -->
+				<div class="flor">
+					<ul>
+						<li>
+							<span class="iconfont icon-shouye" style="color:#F0374E;"></span>
+							<p style="color:#F0374E">首页</p>
+						</li>
+						<li>
+							<a href="second-level menu.html">
+								<span class="iconfont icon-xuanxiang"></span>
+								<p>分类</p>
+							</a>
+						</li>
+						<li>
+							<span class="iconfont icon-baobao"></span>
+							<p>值得买</p>
+						</li>
+						<li>
+							<a :href="hre" @click="Ok()" >
+								<span class="iconfont icon-che-copy"></span>
+								<p>购物车</p>
+							</a>
+				
+						</li>
+						<li>
+							<span class="iconfont icon-profile"></span>
+							<p>我的当当</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!-- 店铺 over-->
+			
+		</div>
+
+		
+		<!-- 组件 -->
+		<template id="bnrTem">
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" v-for="item in bnrarr">
+						<img :src="item" alt="">
+					</div>
+				</div>
+			</div>
+		</template>
+		<!-- 组件over -->
+	</body>
+	<script src="../js/swiper.js"></script>
+	<script src="../js/jQuery.js"></script>
+	<script src="../vueJS/zhuJS.js"></script>
+	<script src="../js/indexJs.js"></script>
+</html>

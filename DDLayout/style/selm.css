@@ -1,0 +1,178 @@
+body{
+	font-size:0.16rem;
+}
+.souInp{
+	width:100%;
+	height:0.641rem;
+	background: #fff;
+	display:flex;
+	align-items: center;
+}
+.souInp p{
+	width:.75rem;
+	height:.64rem;
+	font-size:.6rem;
+	color:#f0374e;
+	text-align:center;
+	background: #fff;
+}
+.souInp div{
+	width:90%;
+	height:0.43rem;
+	background: #e8ecf0;
+	display:flex;
+	align-items: center;
+	border-radius: 0.22rem;
+	justify-content: space-around;
+	
+}
+.souInp div>span{
+	color:#b5bec5;
+	width:.3rem;
+	height:.43rem;
+	text-align: center;
+	line-height:.45rem;
+	font-size:.25rem;
+	margin-left:0.1rem;
+}
+.souInp div>input{
+	width:4.22rem;
+	height:.21rem;
+	font-size:0.18rem;
+	color:#b5bec5;
+	border:none;
+	background:transparent;
+}
+.souInp a{
+	width:.75rem;
+	height:.64rem;
+	display:flex;
+}
+.souInp a>span{
+	width:.75rem;
+	height:.64rem;
+	font-size:0.3rem;
+	text-align: center;
+	line-height:0.6rem;
+	color:#7a8992;
+}
+.sel-nav{
+	width:100%;
+	display:flex;
+}
+.sel-left{
+	width:20%;
+	height:90vh;
+	overflow: auto;
+}
+.sel-left>li{
+	width:100%;
+	line-height:70px;
+	text-align:center;
+	background: #ffff;
+	border-bottom:0.5px solid #fff;
+}
+.sel-left>li.cc{
+	background: #eff4fa;
+}
+.sel-right{
+	width:80%;
+	height:100vh;
+	background: #eff4fa;
+	overflow: auto;
+	display:flex;
+}
+.sel-right>li{
+	width:100%;
+	height:180%;
+	/* background: red; */
+}
+.sebnr{
+	width:100%;
+	height:20%;
+}
+.sebnr .swiper-container{
+	width:100%;
+	height:100%;
+}
+.sebnr .swiper-container img{
+	width:100%;
+	height:100%;
+}
+.fnk1{
+	width:100%;
+	height:5%;
+	display:flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.fnk1 p{
+	width:calc(48% - 0.2rem);
+	height:80%;
+	background:#fff;
+	display:flex;
+	flex-direction: column;
+	padding:0 0.1rem;
+}
+.fnk2{
+	width:calc(100% - 0.2rem);
+	height:15%;
+	padding:0 0.1rem;
+	/* background: #fff; */
+}
+.fnk2>div{
+	width:100%;
+	height:100%;
+	background: #fff;
+	display:flex;
+	justify-content: space-around;
+	flex-direction: column;
+}
+.fnk2>div ul{
+	width:100%;
+	display:flex;
+}
+.fnk2>div li{
+	width:33%;
+	height:100%;
+	/* background:blue; */
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.fnk2>div>ul li img{
+	width:90%;
+	height:80%;
+}
+
+
+.fnk3{
+	margin-top:0.2rem;
+	width:calc(100% - 0.2rem);
+	height:10%;
+	padding:0 0.1rem;
+	/* background: #000; */
+}
+.fnk3 ul{
+	width:100%;
+	height:100%;
+	background: #fff;
+	display:flex;
+	flex-wrap:wrap;
+	align-content: center;
+	justify-content: center;
+}
+.fnk3 ul li{
+	width:1.55rem;
+	height:0.44rem;
+	/* background: red; */
+	border:0.5px solid #ccc;
+	text-align: center;
+	line-height:0.44rem;
+}
+.fnk3 ul li:nth-child(6){
+	color:#ccc;
+}
+
+

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../js/swiper.css">
+		<link rel="stylesheet" href="../style/reset.css">
+		<script src="../js/rem.js"></script>
+		<link rel="stylesheet" href="../style/selm.css">
+		<script src="../js/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_2200340_jvgtk95oco7.css">
+		<script src="../js/swiper.js"></script>
+		<script src="../js/jQuery.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div class="souInp">
+				<p class="iconfont icon-icon_xiegang"></p>
+				<div>
+					<span class="iconfont icon-sousuo"></span>
+					<input type="text" placeholder="搜索商品/店铺/种类">
+				</div>
+			</div>
+			<div class="sel-nav">
+				<navlist :firone="selobj" @fsop="jsop"></navlist>
+				<ul class="sel-right">
+					<cnp :jies="jsopdata"></cnp>
+					<li v-if="jsopdata==''">
+						<div class="sebnr">
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<div class="swiper-slide">
+										<img src="../jsonlistImage/objbnr1.jpg" alt="">
+									</div>
+									<div class="swiper-slide">
+										<img src="../jsonlistImage/objbnr2.jpg" alt="">
+									</div>
+								</div>
+								<div class="swiper-pagination"></div>
+							</div>
+						</div>
+						<div class="fnk1">
+							<p>
+								<span style="font-size:0.10rem;">进图当当书店</span>
+								<span style="color:#ccc;font-size:0.1rem;">低价1.9折</span>
+							</p>
+							<p>
+								<span style="font-size:0.10rem;">进图当当书店</span>
+								<span style="color:#ccc;font-size:0.1rem;">低价1.9折</span>
+							</p>
+						</div>
+						<div class="fnk2">
+							<div>
+								<h5>榜单</h5>
+								<ul>
+									<li>
+										<img src="../jsonlistImage/obj1nav1.png" alt="">
+										<span>总榜</span>
+									</li>
+									<li>
+										<img src="../jsonlistImage/obj1nav2.png" alt="">
+										<span>新书榜</span>
+									</li>
+									<li>
+										<img src="../jsonlistImage/obj1nav3.png" alt="">
+										<span>童年榜</span>
+									</li>
+								</ul>
+								
+							</div>
+						</div>
+						<div class="fnk3">
+							<h5>小说></h5>
+							<ul>
+								<li>社会</li>
+								<li>推理/悬疑/侦探</li>
+								<li>情感</li>
+								<li>世界名著</li>
+								<li>历史</li>
+								<li>展开</li>
+							</ul>
+						</div>
+						<div class="fnk3">
+							<h5>文学></h5>
+							<ul>
+								<li>中国现代随笔</li>
+								<li>名家作者</li>
+								<li>文集</li>
+								<li>进士文学</li>
+								<li>中国古诗</li>
+								<li>展开</li>
+								
+							</ul>
+						</div>
+						<div class="fnk3">
+							<h5>动画></h5>
+							<ul>
+								<li>大陆漫画</li>
+								<li>欧美漫画</li>
+								<li>港台漫画</li>
+								<li>日韩漫画</li>
+								<li>幽默漫画</li>
+								<li>展开</li>
+								
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<template id="sellist">
+			<ul class="sel-left">
+				<li v-for="(item,i) in firone" :key="i" @click="fs(item,i)"  :class="opx==i?'cc':''">{{item.name}}</li>
+			</ul>
+		</template>
+		<template id="sebanner">
+			<li>
+				<div class="sebnr">
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="(item,i) in jies.objlist.bnr">
+								<img :src="item" alt="">
+							</div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<div class="fnk1">
+					<p>
+						<span style="font-size:0.10rem;">进图当当书店</span>
+						<span style="color:#ccc;font-size:0.1rem;">低价1.9折</span>
+					</p>
+					<p>
+						<span style="font-size:0.10rem;">进图当当书店</span>
+						<span style="color:#ccc;font-size:0.1rem;">低价1.9折</span>
+					</p>
+				</div>
+				<div class="fnk2">
+					<div>
+						<h5>榜单</h5>
+						<ul>
+							<li v-for="item in jies.objlist.remenr">
+								<img :src="item.img" alt="">
+								<span>{{item.title}}</span>
+							</li>
+						</ul>
+						
+					</div>
+				</div>
+				<div class="fnk3">
+					<h5>小说></h5>
+					<ul>
+						<li v-for="item in jies.objlist.xiaoshuo">{{item}}</li>
+						
+					</ul>
+				</div>
+				<div class="fnk3">
+					<h5>文学></h5>
+					<ul>
+						<li v-for="item in jies.objlist.wenxue">{{item}}</li>
+						
+					</ul>
+				</div>
+				<div class="fnk3">
+					<h5>动画></h5>
+					<ul>
+						<li v-for="item in jies.objlist.donghua">{{item}}</li>
+						
+					</ul>
+				</div>
+			</li>
+			
+		</template>
+	</body>
+	
+	<script>
+	
+		const app = new Vue({
+			el:"#app",
+			data:{
+				selobj:'',
+				jsopdata:'',
+				op:0
+			},
+			methods:{
+				jsop(c){
+					this.jsopdata=c
+				}
+			},
+			components:{
+				cnp:{
+					template:"#sebanner",
+					props:["jies"]
+				},
+				navlist:{
+					template:"#sellist",
+					props:["firone"],
+					data(){
+						return {
+							opx:0
+						}
+					},
+					methods:{
+						fs(c,i){
+							this.$emit("fsop",c)
+							this.opx=i
+						},
+					}
+				}
+			},
+			mounted(){
+				var that = this;
+				axios.get("../date/second-levelMenu.json").then(function(e){
+					console.log(e)
+					that.selobj=e.data.list
+					console.log(that.selobj)
+				})
+				$(".sel-left>li").click(function(){
+					console.log($(this))
+				})
+			}
+		})
+		
+		var seSwiper = new Swiper ('.sebnr .swiper-container', {
+				 autoplay: true,
+				loop: true, 
+				slidesPerView:'1', 
+				pagination: {
+				  el:'.sebnr .swiper-pagination'
+				}
+			})
+		
+	</script>
+</html>
