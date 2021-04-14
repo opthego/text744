@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1000" height="1000" style="border:1px solid #ccc;"></canvas>
+	</body>
+	<script>
+		var c=document.querySelector("#canvas")
+		var ctx=c.getContext("2d")
+		var arr=[712,14432,740016,2689700,3464499,3308305,4655612]
+		var zong=0;
+		var op=["#ddd","#ccc","red","blue","#999","pink","#444"]
+		for(var i=0;i<arr.length;i++){
+			zong+=arr[i]
+		}
+		for(var i=0;i<arr.length;i++){
+			var le=0;
+			for(var j=0;j<i;j++){
+				le+=arr[j]
+			}
+			ctx.beginPath()
+			ctx.arc(400,400,100,le/zong*Math.PI*2,(le+arr[j])/zong*Math.PI*2)
+			ctx.strokeStyle=op[i]
+			ctx.lineWidth=400
+			ctx.stroke()
+			ctx.closePath()
+			ctx.beginPath()
+		}
+	</script>
+</html>
